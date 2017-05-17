@@ -48,6 +48,8 @@ Debian:
 }, merge=salt['pillar.get']('gitlab:client')) %}
 
 {% set runner = salt['grains.filter_by']({
-    'concurrent': 3,
-    'check_interval': 0,
+    'default': {
+        'concurrent': 3,
+        'check_interval': 0
+    }
 }, merge=salt['pillar.get']('gitlab:runner')) %}
