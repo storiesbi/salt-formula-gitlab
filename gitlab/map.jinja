@@ -40,3 +40,14 @@ Debian:
   - python-gitlab
 {%- endload %}
 {% set client = salt['grains.filter_by'](client_defaults, merge=salt['pillar.get']('gitlab:client')) %}
+{% set client = salt['grains.filter_by']({
+    'default': {
+        'pkg': ["build-essential", "zlib1g-dev", "libyaml-dev", "libssl-dev", "libffi-dev"],
+        'pip': "python-gitlab"
+    },
+}, merge=salt['pillar.get']('gitlab:client')) %}
+
+{% set runner = salt['grains.filter_by']({
+    'concurrent': 3,
+    'check_interval': 0,
+}, merge=salt['pillar.get']('gitlab:runner')) %}
