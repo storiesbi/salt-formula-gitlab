@@ -4,12 +4,12 @@
 gitlab-runner_dirs:
   file.directory:
   - names:
-    - /srv/gitlab-runner/config
+    - /srv/gitlab-runner
   - makedirs: true
   - group: root
   - user: root
 
-/srv/gitlab-runner/config/config.yml:
+/srv/gitlab-runner/config.yml:
   file.managed:
   - source: salt://gitlab/conf/runner_config.yml
   - template: jinja
