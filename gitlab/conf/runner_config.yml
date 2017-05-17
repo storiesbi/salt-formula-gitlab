@@ -15,7 +15,7 @@ check_interval = {{ runner.check_interval }}
     privileged = false
     disable_cache = false
     {%- if 'volumes' in runner %}
-    volumes = [{{ runner.volumes|join(', ') }}]
+    volumes = ["{{ runner.volumes|join('", "') }}"]
     {%- else %}
     volumes = []
     {%- endif %}
