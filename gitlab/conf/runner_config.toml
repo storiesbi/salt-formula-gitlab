@@ -1,4 +1,4 @@
-{% from "gitlab/map.jinja" import runner with context %}
+{%- from "gitlab/map.jinja" import runner with context -%}
 concurrent = {{ runner.concurrent }}
 check_interval = {{ runner.check_interval }}
 
